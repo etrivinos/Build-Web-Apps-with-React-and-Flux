@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Document</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <script src="https://unpkg.com/react@15.3.2/dist/react.min.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.min.js"></script>
 
@@ -11,20 +13,28 @@
   </head>
 
   <body>
-
-
+  
     <script type="text/jsx">
       // Define a react component class
-      var HelloWorld = React.createClass({
+      var Badget = React.createClass({
         render: function() {
-          return <div>
-                    Hello World! 
-                 </div>
+          // The this.props object allows to set a dynamic component
+          // this.props = {}
+
+          // In JSX we need to use the className attribute insted of the class attribute
+          return  <button type="button" className="btn btn-primary">
+                    { this.props.title } <span className="badge">{ this.props.number }</span>
+                  </button>
         }
       });
 
+      var options = {
+        title: 'Sent',
+        number: 4
+      };
+
       // Ask react to render this class
-      var element = React.createElement(HelloWorld);
+      var element = React.createElement(Badget, options);
       
       // When we ask react to render this class, we will tell it
       // where to place the rendered element in the dom
