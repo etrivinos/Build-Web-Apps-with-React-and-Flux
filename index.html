@@ -13,31 +13,28 @@
   </head>
 
   <body>
-  
+
     <script type="text/jsx">
-      // Define a react component class
+      // Create Badget Class
       var Badget = React.createClass({
         render: function() {
-          // The this.props object allows to set a dynamic component
-          // this.props = {}
-
-          // In JSX we need to use the className attribute insted of the class attribute
           return  <button type="button" className="btn btn-primary">
                     { this.props.title } <span className="badge">{ this.props.number }</span>
                   </button>
         }
       });
 
-      var options = {
-        title: 'Sent',
-        number: 4
-      };
+      // Create the Form Class
+      var Form = React.createClass({
+        render: function() {
+          return  <div>
+                    <Badget title={this.props.title} number={this.props.number} />
+                  </div>
+        }
+      });
 
-      // Ask react to render this class
-      var element = React.createElement(Badget, options);
-      
-      // When we ask react to render this class, we will tell it
-      // where to place the rendered element in the dom
+      // Render the form element
+      var element = React.createElement(Form, {title: 'Sent', number: 4 });
       ReactDOM.render(element, document.body);
     </script>
 
