@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <title>Document</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <script src="https://unpkg.com/react@15.3.2/dist/react.min.js"></script>
-    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
 
   <body>
@@ -21,74 +17,7 @@
         </div>
       </div>
     </div>
-
-    <script type="text/jsx">
-
-      // Create Badget Class
-      var Badget = React.createClass({
-        render: function() {
-          return  <button type="button" className="btn btn-primary">
-                    { this.props.title } <span className="badge">{ this.props.number }</span>
-                  </button>
-        }
-      });
-
-      // Create Thumbnail Component
-      var Thumbnail = React.createClass({
-        render: function() {
-          return  <div className="thumbnail">
-                    <img src={this.props.imageUrl} />
-
-                    <div className="caption">
-                      <h3>{ this.props.header }</h3>
-                    
-                      <p>{ this.props.description }</p>
-                    
-                      <p>
-                        <Badget title={this.props.title} number={this.props.number} />
-                      </p>
-                    </div>
-                  </div>
-        }
-      });
-
-      // Create ThumbnailList Component
-      var ThumbnailList = React.createClass({
-        render: function() {
-          var list = this.props.thumbnailData.map(function(thumbnailProps) {
-            return <Thumbnail { ...thumbnailProps } />
-          });
-
-          return  <div>
-                    {list}
-                  </div>
-        }
-      });
-
-      // Options
-      var options = {
-        thumbnailData: [
-          {
-            title: 'Sent', 
-            number: 4,
-            header: 'Learn React',
-            description: 'A fantastic library to make fast web apps',
-            imageUrl: 'https://worldvectorlogo.com/logos/react.svg'
-          },
-          {
-            title: 'Received', 
-            number: 2,
-            header: 'Learn Angular',
-            description: 'A full SPA framework',
-            imageUrl: 'http://pucksart.com/wp-content/uploads/2014/10/AngularJS-Shield-large-282x300.png'
-          }
-        ]
-      };
-
-      // Render the form element
-      var element = React.createElement(ThumbnailList, options);
-      ReactDOM.render(element, document.querySelector('.target'));
-    </script>
-
+    
+    <script src="./main.js"></script>
   </body>
 </html>
